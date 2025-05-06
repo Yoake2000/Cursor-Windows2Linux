@@ -1,0 +1,15 @@
+normal select           -> default
+help select             -> help
+working in background   -> progress
+busy                    -> wait
+crosshair/Precision     -> crosshair
+text select             -> text
+handwriting             -> pencil
+unavailable             -> not-allowed
+vertical resize         -> size_ver
+horizontal resize       -> size_hor
+diagonal resize 1       -> size_fdiag
+diagonal resize 2       -> size_bdiag
+move                    -> dnd-move
+alternate select        -> up-arrow
+link select             -> pointer
