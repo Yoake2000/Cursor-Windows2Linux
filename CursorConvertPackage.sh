@@ -13,6 +13,8 @@ read -r input_dir
 echo "Enter the Output Directory"
 read -r output_dir
 
+# Need to redo the logic for symbolic linkings. Maybe a new for loop for each similar cursors.
+# Symbolic Links for cursors are obtained from Breeze cursors and modified slightly.
 declare -a symbolic_links=(
   [0]="arrow left_ptr size-bdiag size-fdiag size-hor size-ver top_left_arrow"
   [1]="5c6cd98b3f3ebcb1f9c7f1c204630408 d9ce0ab605698f320427677b458ad60b left_ptr_help question_arrow whats_this"
