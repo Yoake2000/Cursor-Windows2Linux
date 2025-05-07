@@ -7,13 +7,15 @@ echo "The conversion into usable XCursor file for linux is done by the 'win2xcur
 echo "=================================================================================================================================="
 echo "=================================================================================================================================="
 
-read -r "Enter the Name for this Cursor Package" Package_name
+read -p "Enter the Name for this Cursor Package:  " Package_name
 
-read -r "Enter a description for the Cursor Package" Package_desc
+read -p "Enter a description for the Cursor Package:  " Package_desc
 
-read -r "Enter the Directory of the .ani/.cur Windows cursors" input_dir
+read -p "Enter the Directory of the .ani/.cur Windows cursors:  " input_dir
 
-read -r "Enter the Output Directory" output_dir
+read -p "Enter the Output Directory:  " output_dir
+
+read -p "Add Shadows to Cursors? (y/n): " shadows
 
 output_dir="$output_dir"/"$Package_name"
 
@@ -79,6 +81,13 @@ function convert() {
   win2xcur "$input_dir"/*.cur -o "$output_dir/cursors"
 }
 
+function convert_shadows() {
+  echo "Converting .ani/.cur cursors"
+  mkdir -p "$output_dir/cursors"
+  win2xcur "$input_dir"/*.ani -o "$output_dir/cursors" -s
+  win2xcur "$input_dir"/*.cur -o "$output_dir/cursors" -s
+}
+
 function cursor_rename() {
   echo "Renaming converted cursors into XCursor file names"
 
@@ -115,7 +124,12 @@ function index_maker() {
   ) >>index.theme
 }
 
-convert
+case $shadows in
+[yY]*) convert_shadows ;;
+[nN]*) convert ;;
+*) echo "invalid response" ;;
+esac
+
 cursor_rename
 symlinks
 index_maker
