@@ -7,17 +7,13 @@ echo "The conversion into usable XCursor file for linux is done by the 'win2xcur
 echo "=================================================================================================================================="
 echo "=================================================================================================================================="
 
-echo "Enter the Name for this Cursor Package"
-read -r Package_name
+read -r "Enter the Name for this Cursor Package" Package_name
 
-echo "Enter a description for the Cursor Package"
-read -r Package_desc
+read -r "Enter a description for the Cursor Package" Package_desc
 
-echo "Enter the Directory of the .ani/.cur Windows cursors"
-read -r input_dir
+read -r "Enter the Directory of the .ani/.cur Windows cursors" input_dir
 
-echo "Enter the Output Directory"
-read -r output_dir
+read -r "Enter the Output Directory" output_dir
 
 output_dir="$output_dir"/"$Package_name"
 
