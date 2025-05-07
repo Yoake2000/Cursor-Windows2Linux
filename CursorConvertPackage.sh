@@ -98,7 +98,7 @@ function cursor_rename() {
 }
 
 function symlinks() {
-  echo "Creating symlinks for cursors"
+  echo "Creating Symbolic links for cursors"
 
   cd "$output_dir/cursors" || echo "Output path not found"
   for lincursor in "${!linux_names[@]}"; do
