@@ -79,8 +79,7 @@ declare -a windows_names=(
 function convert() {
   echo "Converting .ani/.cur cursors"
   mkdir -p "$output_dir/cursors"
-  win2xcur "$input_dir"/*.ani -o "$output_dir/cursors"
-  win2xcur "$input_dir"/*.cur -o "$output_dir/cursors"
+  win2xcur "$input_dir"/*.{ani,cur} -o "$output_dir/cursors"
 }
 
 function cursor_rename() {
