@@ -28,7 +28,7 @@ symbolic4=("cross" "tcross")
 symbolic5=("ibeam" "xterm")
 symbolic6=("draft")
 symbolic7=("circle" "crossed_circle")
-symbolic8=("3ecb610c1bf2410f44200f48c40d3599" "n-resize" "ns-resize" "s-resize" "sb_v_double_arrow" "v_double_arrow")
+symbolic8=("00008160000006810000408080010102" "n-resize" "ns-resize" "s-resize" "sb_v_double_arrow" "v_double_arrow")
 symbolic9=("e-resize" "ew-resize" "h_double_arrow" "sb_h_double_arrow" "w-resize")
 symbolic10=("nw-resize" "nwse-resize" "se-resize")
 symbolic11=("ne-resize" "nesw-resize" "sw-resize")
@@ -105,7 +105,6 @@ function cursor_rename() {
 function symlinks() {
   echo "Creating Symbolic links for cursors"
 
-  cd "$output_dir/cursors" || echo "Output path not found"
   for lincursor in "${!linux_names[@]}"; do
     declare -n symboliclink="${symbolic[$lincursor]}"
     for symlink in "${!symboliclink[@]}"; do
@@ -115,7 +114,7 @@ function symlinks() {
 }
 
 function index_maker() {
-  cd "$output_dir" || exit
+  cd .. || exit
   touch index.theme
   (
     echo "[Icon Theme]"
